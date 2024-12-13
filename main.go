@@ -17,6 +17,10 @@ type Liquidation struct {
 }
 
 func setupRoutes(app *fiber.App, conn *sqlx.DB) {
+	app.Get("/", func(c *fiber.Ctx) error {
+		return c.SendString("Hello, World!")
+	})
+
 	app.Get("/liquidation", func(c *fiber.Ctx) error {
 		start := time.Now() // Start measuring elapsed time
 
